@@ -46,13 +46,10 @@ void popPocket(string poppingPocket) {
 int main () {
   string words,input;
 
-
   cin >> words;
   cin >> input;
 
   parseInput(input);
-
-
 
   string action;
   while (cin >> action) {
@@ -80,6 +77,7 @@ int main () {
 
   cout << words << endl;
   string ans;
+
   map<string, int>::iterator ii;
   for (ii = pocket.begin(); ii != pocket.end(); ii++ ) {
     if (ii->second > 0) {
@@ -89,6 +87,7 @@ int main () {
       ans += ",";
     }
   }
+
   for (int j=0;j<ans.length()-1;j++) cout << ans[j];
   cout << endl;
 }
