@@ -5,7 +5,7 @@ using namespace std;
 map<string, int> pocket{ };
 string inStr[101];
 
-void parseInput(string strInput) {
+void parseInput(string strInput) { // a Parse the Input from String to Variable
 
   string character,count;
   bool isPassed = false;
@@ -35,11 +35,11 @@ void parseInput(string strInput) {
   }
 }
 
-void addPocket(string addingPocket) {
+void addPocket(string addingPocket) { // add the pocket color
   pocket[addingPocket]++;
 }
 
-void popPocket(string poppingPocket) {
+void popPocket(string poppingPocket) { // delete the pocket color
   pocket[poppingPocket]--;
 }
 
@@ -49,14 +49,14 @@ int main () {
   cin >> words;
   cin >> input;
 
-  parseInput(input);
+  parseInput(input); // parse the input
 
   string action;
-  while (cin >> action) {
+  while (cin >> action) { // while not eof then input
     if (action == "SELIP") {
       string color;
       int index;
-      inputSelip :
+      inputSelip : // if the input is just SELIP then input again (like the testcase)
         cin >> color;
       if (color == "SELIP") goto inputSelip;
         cin >> index;
@@ -80,7 +80,7 @@ int main () {
 
   map<string, int>::iterator ii;
   for (ii = pocket.begin(); ii != pocket.end(); ii++ ) {
-    if (ii->second > 0) {
+    if (ii->second > 0) { // to seperate the zero pocket color
       ans += ii->first;
       ans += ":";
       ans += to_string(ii->second);
@@ -88,6 +88,6 @@ int main () {
     }
   }
 
-  for (int j=0;j<ans.length()-1;j++) cout << ans[j];
+  for (int j=0;j<ans.length()-1;j++) cout << ans[j]; // output the color left inside the pocket
   cout << endl;
 }
